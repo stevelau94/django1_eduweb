@@ -31,6 +31,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',  # 此处是元组！一定要有逗号！！！
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -44,7 +47,8 @@ INSTALLED_APPS = [
     'organization',
     'operation',
     'xadmin',
-    'crispy_forms'
+    'crispy_forms',
+    'captcha'
 
 ]
 
@@ -132,3 +136,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+EMAIL_HOST = 'smtp.sina.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'testoctopi@sina.com'
+EMAIL_HOST_PASSWORD = 'testoctopi'
+EMAIL_USE_TLS = False
+EMAIL_FROM = 'testoctopi@sina.com'
