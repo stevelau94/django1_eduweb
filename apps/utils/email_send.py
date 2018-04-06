@@ -35,3 +35,10 @@ def send_register_email(email, send_type='register'):
         send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])
         if send_status:
             pass
+    elif send_type == 'forget':
+        email_title = 'edu网站重置链接'
+        email_body = '请点击以下链接重新设置密码，http://127.0.0.1:8000/reset/{0}'.format(code)
+
+        send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])
+        if send_status:
+            pass
